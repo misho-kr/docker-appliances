@@ -1,7 +1,9 @@
 # Programs that will run after Openbox has started
 
+xsetroot -solid blue
+
 fbpanel &
+xterm -g 120x35+10+10 &
 
-# good ol xterm
-xterm &
-
+# finally the VNC server
+x11vnc -forever -usepw -noncache &
