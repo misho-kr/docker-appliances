@@ -17,12 +17,14 @@ ADD openbox.rc.xml /.config/openbox/rc.xml
 RUN mkdir /.config/fbpanel && cp /usr/share/fbpanel/default /.config/fbpanel/default
 
 # Configure supervisord
-ADD supervisor.conf /etc/
+ADD supervisord.conf /etc/
+ADD supervisor.xvfb.conf /etc/supervisord.d/
+ADD supervisor.x11vnc.conf /etc/supervisord.d/
  
 # VNC port for display :1
 EXPOSE 5900
 
-CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor.conf" ]
+CMD [ "/usr/bin/supervisord" ]
 
 # ENV LC_ALL      en_US.UTF-8
 
