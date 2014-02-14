@@ -1,4 +1,4 @@
-# Docker image of simple VNC server
+# Docker image of simple and stable VNC server
 # ---------------------------------------------------
  
 FROM            fedora
