@@ -1,10 +1,10 @@
 VNC Server
 ==========
 
-The images in the subfolders will run a minimal headless X server and vnc server
-to listen for and accept VNC conenctions. Each folder contains _Dockerfile_ that
-will build Docker image with VNC server that is setup in some perticular way --
-standlone, with supervisor, with encrypted VNC channel.
+The Docker containers will run a minimal headless X server and a vnc server.
+Each folder contains _Dockerfile_ that will build Docker image with VNC server
+that is setup in some perticular way -- standlone, with supervisor, with
+encrypted VNC channel.
 
 * Only _xterm_ is installed to demonstrate the use of X clients
 * Window manager and panel are added to make the visual appearance a bit more appealing
