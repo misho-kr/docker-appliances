@@ -1,9 +1,16 @@
 Docker Appliances
 =================
 
-Docker images with installed and properly configured software packages.
-Ready to deploy and run with single command.
+Docker images with properly installed and configured software packages
+that can be built and run with sinlgle command.
 
-## Purpose
+### Main principle
 
-The main goal of this project is to learn and experiment with [Docker](http://www.docker.io).
+Keep the Docker image size to minimum by including only the set of
+packages that are necessary to achieve the desired functonality.
+
+### Purpose
+
+The main goal of this project is educational -- to learn and experiment
+with [Docker](http://www.docker.io). If any of the Docker images turns 
+out to be use useful for some particular purpose -- so much the better.
