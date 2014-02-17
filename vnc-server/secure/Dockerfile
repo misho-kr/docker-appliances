@@ -27,7 +27,7 @@ ADD supervisor.xvfb.conf /etc/supervisord.d/
 ADD supervisor.x11vnc.conf /etc/supervisord.d/
 ADD supervisor.sshd.conf /etc/supervisord.d/
  
-# VNC port for display :1
+# SSH port, no direct connections to VNC server
 EXPOSE 22
 
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]

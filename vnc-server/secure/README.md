@@ -81,6 +81,6 @@ Last login: ... from ...
 $ vinagre localhost:0
 ```
 
-If you are using _vinagre_ as vnc viewer, it supports SSH tunneling so you
-don't have to create the tunnel in separate step. Make sure to check the box
-_Use host ... as a SSH tunnel_.
+If you are using [Vinagre](https://wiki.gnome.org/Apps/Vinagre) as vnc viewer,
+it supports SSH tunneling so you don't have to create the tunnel in separate
+step. Make sure to check the box _Use host ... as a SSH tunnel_.
