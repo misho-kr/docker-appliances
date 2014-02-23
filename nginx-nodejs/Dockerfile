@@ -12,11 +12,12 @@ MAINTAINER      Misho Krastev <misho.kr@gmail.com>
 
 # Install ---------------------------------
 
-RUN yum install -y nodejs nginx openssh-server supervisor
+RUN yum install -y nodejs npm nginx openssh-server supervisor
 
 # Configure SSH ---------------------------
 
-RUN ssh-keygen -t rsa -b 2048 -f /etc/ssh/ssh_host_rsa_key -N ""
+RUN ssh-keygen -t rsa   -b 2048 -f /etc/ssh/ssh_host_rsa_key -N ""
+RUN ssh-keygen -t ecdsa -b  521 -f /etc/ssh/ssh_host_ecdsa_key -N ""
 
 ADD nginx-nodejs-server.pubkey  /root/.ssh/authorized_keys
 RUN chown root:root             /root/.ssh/authorized_keys
@@ -41,8 +42,7 @@ ADD supervisord.nginx.conf      /etc/supervisord.d/
 
 # Run -------------------------------------
 
-ENV NODEJS_IP			0.0.0.0
-ENV NODEJS_PORT         8080
+ENV PORT	8080
 
 EXPOSE 22 80 8080
 
