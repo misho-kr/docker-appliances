@@ -1,7 +1,7 @@
 Docker Appliances
 =================
 
-Docker images with properly installed and configured software packages
+Docker containers with properly installed and configured software packages
 that can be built and run with sinlgle command.
 
 ### Main principle
