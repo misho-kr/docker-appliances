@@ -12,7 +12,7 @@ MAINTAINER      Misho Krastev <misho.kr@gmail.com>
 
 # Install ---------------------------------
 
-RUN yum install -y nodejs npm nginx openssh-server supervisor
+RUN yum install -y nodejs npm nginx openssh-server supervisor logrotate
 
 # Configure SSH ---------------------------
 
@@ -33,12 +33,20 @@ RUN cd /src && npm install
 RUN cp /etc/nginx/nginx.conf{,.original}
 ADD nginx.conf          /etc/nginx/
 
+# Configure logrotate ---------------------
+
+ADD logrotate.nginx.conf	/etc/logrotate.d/nginx
+ADD logrotate-loop.sh      	/usr/bin/logrotate-loop
+
+RUN cat /etc/supervisord.logrotate.conf >> /etc/supervisord.conf && rm /etc/supervisord.logrotate.conf
+
 # Configure Supervisord -------------------
 
 ADD supervisord.conf          	/etc/supervisord.conf
 ADD supervisord.sshd.conf       /etc/supervisord.d/
 ADD supervisord.nodejs.conf     /etc/supervisord.d/
 ADD supervisord.nginx.conf      /etc/supervisord.d/
+ADD supervisord.logrotate.conf	/etc/supervisord.d/
 
 # Run -------------------------------------
 
