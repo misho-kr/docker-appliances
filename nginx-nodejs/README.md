@@ -11,6 +11,7 @@ The following components are installed in the container:
 * Node server to run your NodeJS application
 * SSH server to enable secure remote login with public key authentication
 * [Supervisord](http://supervisord.org) to managing the processes
+* Logrotate is run periodically to check and rotate nginx access logfile
 
 #### Startint the Docker Container
 
@@ -44,9 +45,18 @@ the RSA keypair with your keys and build the container with the _Dockerfile_,
 or use the [_ssh-copy-id_](http://www.manpager.com/linux/man1/ssh-copy-id.1.html)
 command to override the key of existing Docker container.
 
+### Logfile rotation
+
+Most of the components in the Docker container are set up to log to stdout and/or
+stderr which are handled by supervisord. However nginx does not allow to direct
+the access log to stdout, the only options are plain file or syslog.
+
+Logrotate runs at regular inervals to check the nginx access logfile and rotate
+it when necessary.
+
 ## TODO items
 
 * Setup nginx to accept HTTPS connections
-* Add logrotate to keep the logfiles in check
+* ~Add logrotate to keep the logfiles in check~
 * Have the html page display something ... better
 * Finish this README
