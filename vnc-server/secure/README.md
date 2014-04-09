@@ -1,3 +1,6 @@
+Secure Setup
+============
+
 VNC server that is accessed through SSH tunnel that encrypts all traffic
 between the client and the server. This is an improved implementation of 
 [stable Docker container running VNC server](https://github.com/misho-kr/docker-appliances/tree/master/vnc-server/stable)
@@ -6,8 +9,8 @@ with enhanced security features.
 ## Encrypted traffic
 
 The integrity and confidentiality of the traffic between the VNC viewer
-and the server is protected with encryption. The communication channel is
-established in two steps:
+and the server is protected with encryption and public key authetication.
+The communication channel is established in two steps:
 
 1. SSH tunnel is created between the host where the viewer is started
 and the Docker container running the secure VNC server
