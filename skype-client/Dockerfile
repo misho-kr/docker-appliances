@@ -5,8 +5,9 @@ FROM            fedora
 MAINTAINER      Misho Krastev <misho.kr@gmail.com>
 
 # Install sshd, vnc and X server packages
-RUN yum install -y openssh-server xorg-x11-xauth xorg-x11-fonts-* \
-                   http://download.skype.com/linux/skype-4.2.0.13-fedora.i586.rpm
+RUN yum install -y openssh-server openssh-clients \
+                   xorg-x11-xauth xorg-x11-fonts-* \
+                   http://download.skype.com/linux/skype-4.3.0.37-fedora.i586.rpm
 
 # Setup SSH Server ---------
 RUN /usr/sbin/sshd-keygen
