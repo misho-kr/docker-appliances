@@ -47,7 +47,8 @@ from this GitHub repository and use it replace the public RSA key in the Docker 
     
     $ docker run -d -p 2020:22 -name="vnc-secure" -h="vnc-secure" misho1kr/vnc-secure
     9f06514c19a23fa85201203c893d4dac1affa15dd98b4b513d54b898fb6bfc7b
-    $ scp -P 2020 $HOME/.ssh/id_rsa.pub root@docker-host:.ssh/authorized_keys
+    $ chmod 400 vnc-server-key
+    $ scp -i vnc-server-key -P 2020 $HOME/.ssh/id_rsa.pub root@docker-host:.ssh/authorized_keys
     id_rsa.pub                                            100%  228     0.2KB/s   00:00
     $ rm vnc-server-key
     $ ssh -p 2020 root@localhost
